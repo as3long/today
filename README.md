@@ -1,6 +1,6 @@
 today
 =====
-today是有Ham框架写的一个简单的工作日志。
+today是采用Ham框架写的一个简单的工作日志。
 
 ##Ham框架
 - Ham框架采用sqlite作为数据库。使用[dblite](https://github.com/WebReflection/dblite)和[sql-query](https://github.com/dresende/node-sql-query)初步实现sql的对象化。
