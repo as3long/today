@@ -1,0 +1,48 @@
+{{include '../public/header'}}
+    <section class="layout mt20">
+        <div class="grid-row">
+            <div class="grid-6">
+                <div class="content">
+                    <dl class="nav">
+                        <dt class="nav-green">功能设置<span class="nav-en">/Setting</span></dt>
+                        <dd><a href="/user/setting">帐号设置</a></dd>
+                        <dd><a class="on" href="/index/addTask">添加任务</a></dd>
+                        <dd><a href="/index/index">我的任务</a></dd>
+                        <dd><a href="/index/myPublish">我发布的任务</a></dd>
+                        <dd><a href="/user/logout">退出</a></dd>
+                    </dl>
+                    {{include '../public/navUser'}}
+                </div>
+            </div>
+            <div class="grid-18">
+                <div class="feed_item">
+                    <div class="feed_hd clearfix">
+                        <span class="gray fl">日期：{{today}}</span>
+                    </div>
+                    <hr class="v_line" />
+                    <form action="/index/addTask" method="post">
+                    <div class="feed_bd">
+                        <textarea name="content" class="form_textarea" placeholder="任务内容什么的"></textarea>
+                    </div>
+                    <hr class="v_line" />
+                    <div class="feed_ft clearfix">
+                        <span class="gray fl">预计完成：<input class="form_date" type="date" name="predict"/></span>
+                        <span class="red fr">
+                        任务负责人：
+                        <select class="form_select" name="execut_uid">
+                            {{each allUser}}
+                                <option value="{{$value.id}}">{{$value.realname||$value.name}}</option>
+                            {{/each}}
+                        </select>
+                        </span>
+                    </div>
+                    <hr class="v_line" />
+                    <div class="feed_edit tar">
+                        <input type="submit" class="btn btn_green btn_md" value="发布">
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{{include '../public/footer'}}

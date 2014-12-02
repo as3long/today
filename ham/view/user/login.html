@@ -1,0 +1,33 @@
+{{include '../public/header'}}
+    <section class="layout mt20">
+        <div class="grid-row">
+            <div class="grid-8" style="margin-left:320px">
+                <form action="/user/login" method="post">
+                    <div class="feed_item">
+                        <div class="feed_hd clearfix">
+                            <span class="gray fl" style="font-size:16px;">需要登录</span>
+                            {{if error }}
+                            <span class="red fr" style="font-size: 12px;">密码最少6位</span>
+                            {{ else }}
+                            <span class="red fr" style="font-size: 12px;color: gray;">输入帐号密码，登陆即注册</span>
+                            {{/if}}
+                        </div>
+                        <hr class="v_line" />
+                        <div class="feed_bd">
+                            <p><label for="name">帐号：</label>
+                            <input name="name" id="name" type="text" class="form_txt" placeholder="请输入用户名"></p>
+                            <p class="mt20"><label for="password">密码：</label>
+                            <input id="password" name="password" type="password" class="form_txt" placeholder="请输入密码,最少6位"></p>
+                        </div>
+                        <hr class="v_line" />
+                        <div class="feed_ft clearfix">
+                            <div class="feed_edit">
+                                <input class="btn btn_green btn_md" type="submit" name="login" value="Start Today" style="margin-left:85px;">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{{include "../public/footer"}}

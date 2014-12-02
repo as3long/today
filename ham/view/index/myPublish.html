@@ -1,0 +1,53 @@
+{{include '../public/header'}}
+	<section class="layout mt20">
+		<div class="grid-row">
+		    <div class="grid-6">
+				<div class="content">
+					<dl class="nav">
+						<dt class="nav-green">功能设置<span class="nav-en">/Setting</span></dt>
+						<dd><a href="/user/setting">帐号设置</a></dd>
+						<dd><a href="/index/addTask">添加任务</a></dd>
+						<dd><a href="/index/index">我的任务</a></dd>
+						<dd><a class="on" href="/index/myPublish">我发布的任务</a></dd>
+						<dd><a href="/user/logout">退出</a></dd>
+					</dl>
+                    {{include '../public/navUser'}}
+				</div>
+		    </div>
+		    <div class="grid-18">
+		      {{each taskList}}
+				<div class="feed_item">
+					<div class="feed_hd clearfix">
+						<span class="gray fl">日期：{{$value.created}}</span>
+                            {{if $value.status==1}}
+						  <span class="green fr">
+						      已完成
+                              <a href="/index/updateTask2/{{$value.id}}">修改</a>
+                          </span>
+                          {{else if $value.status==2}}
+						  <span class="red fr">
+						      进行中
+                              <a href="/index/updateTask2/{{$value.id}}">修改</a>
+						  </span>
+						  {{else}}
+						  <span class="red fr">
+						      未开始
+						      <a href="/index/updateTask2/{{$value.id}}">修改</a>
+						  </span>
+						  {{/if}}
+					</div>
+					<hr class="v_line"/>
+					<div class="feed_bd">
+						<p>{{$value.content}}</p>
+					</div>
+					<hr class="v_line"/>
+					<div class="feed_ft clearfix">
+						<span class="gray fl">预计完成：{{$value.predict}}</span>
+						<span class="gray fr">实际完成：{{$value.realtime}}</span>
+					</div>
+				</div>
+		    {{/each}}
+		    </div>
+		</div>
+	</section>
+{{include '../public/footer'}}

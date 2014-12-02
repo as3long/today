@@ -1,0 +1,49 @@
+{{include '../public/header'}}
+    <section class="layout mt20">
+        <div class="grid-row">
+            <div class="grid-6">
+                <div class="content">
+                    <dl class="nav">
+                        <dt class="nav-green">功能设置<span class="nav-en">/Setting</span></dt>
+                        <dd><a href="/user/setting">帐号设置</a></dd>
+                        <dd><a href="/index/addTask">添加任务</a></dd>
+                        <dd><a href="/index/index">我的任务</a></dd>
+                        <dd><a href="/index/myPublish">我发布的任务</a></dd>
+                        <dd><a href="/user/logout">退出</a></dd>
+                    </dl>
+                    {{include '../public/navUser'}}
+                </div>
+            </div>
+            <div class="grid-18">
+                <div class="feed_item">
+                    <form action="/index/updateTask2/{{task.id}}" method="post">
+                    <div class="feed_hd clearfix">
+                        <span class="gray fl">日期：{{task.created}}</span>
+                        <span class="red fr">
+                            <select class="form_select" name="status">
+                              <option value="0" {{if task.status=="0"}}selected="true"{{/if}} >未开始</option>
+                              <option value="1" {{if task.status=="1"}}selected="true"{{/if}} >已完成</option>
+                              <option value="2" {{if task.status=="2"}}selected="true"{{/if}} >进行中</option>
+                            </select>
+                        </span>
+                    </div>
+                    <hr class="v_line" />
+                    <div class="feed_bd">
+                        <textarea name="content" class="form_textarea">{{task.content}}</textarea>
+                    </div>
+                    <hr class="v_line" />
+                    <div class="feed_ft clearfix">
+                        <span class="gray fl">预计完成：<input class="form_date" type="date" name="predict" value="{{task.predict}}"/></span>
+                        <span class="gray fr">任务完成：<input class="form_date" type="date" name="realtime" value="{{task.realtime}}"/></span>
+                    </div>
+                    <hr class="v_line" />
+                    <div class="feed_edit tar">
+                        <input type="submit" name="delete" class="btn btn_red btn_md" value="删除">
+                        <input type="submit" class="btn btn_green btn_md" value="发布">
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{{include '../public/footer'}}

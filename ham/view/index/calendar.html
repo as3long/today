@@ -1,0 +1,34 @@
+{{include '../public/header'}}
+<link rel="stylesheet" href="/css/fullcalendar.min.css">
+<section class="layout mt20">
+    <div class="grid-row">
+        <div class="grid-6">
+            <div class="content">
+                <dl class="nav">
+                    <dt class="nav-green">功能设置<span class="nav-en">/Setting</span></dt>
+                    <dd><a href="/user/setting">帐号设置</a></dd>
+                    <dd><a href="/index/addTask">添加任务</a></dd>
+                    <dd><a href="/index/index">我的任务</a></dd>
+                    <dd><a href="/index/myPublish">我发布的任务</a></dd>
+                    <dd><a href="/user/logout">退出</a></dd>
+                </dl>
+                {{include '../public/navUser'}}
+            </div>
+        </div>
+        <div class="grid-18">
+            <div id='calendar'></div>
+        </div>
+    </div>
+</section>
+<script src='/js/jquery.min.js'></script>
+<script src='/js/moment.min.js'></script>
+<script src='/js/fullcalendar.min.js'></script>
+<script src="http://cdn.jsdelivr.net/fullcalendar/2.0.1/lang/zh-cn.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#calendar').fullCalendar({
+            events:'/index/myCaljson/{{nowUid}}'
+        });
+    });
+</script>
+{{include '../public/footer'}}

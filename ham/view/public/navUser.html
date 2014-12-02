@@ -1,0 +1,20 @@
+<dl class="nav">
+    <dt class="nav-yellow">视觉设计<span class="nav-en">/Design</span></dt>
+        {{each sjArr}}
+        {{if nowUid==$value.id }}
+       <dd><a href="/index/userTasks/{{$value.id}}" class="on">{{$value.realname||$value.name}}</a></dd>
+        {{else}}
+      <dd><a href="/index/userTasks/{{$value.id}}">{{$value.realname||$value.name}}</a></dd>
+       {{/if}}
+       {{/each}}
+</dl>
+<dl class="nav">
+    <dt class="nav-red">重构<span class="nav-en">/Rebuild</span></dt>
+       {{each cgArr}}
+        {{if nowUid==$value.id }}
+       <dd><a href="/index/userTasks/{{$value.id}}" class="on">{{$value.realname||$value.name}}</a></dd>
+        {{else}}
+      <dd><a href="/index/userTasks/{{$value.id}}">{{$value.realname||$value.name}}</a></dd>
+       {{/if}}
+       {{/each}}
+</dl>
