@@ -6,3 +6,6 @@ SELECT * FROM `today_task` WHERE `execut_uid` = 1 ORDER BY `id` DESC
 UPDATE `today_user` SET `realname` = 'admin', `section` = '1' WHERE `id` = '1'
 SELECT * FROM `today_user`
 SELECT * FROM `today_task` WHERE `execut_uid` = 1 ORDER BY `id` DESC
+SELECT * FROM `today_user` WHERE `name` = 'admin' LIMIT 1
+SELECT * FROM `today_user`
+SELECT * FROM `today_task` WHERE `execut_uid` = 1 ORDER BY `id` DESC
